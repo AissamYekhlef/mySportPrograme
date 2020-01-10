@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sport Programe</title>
+	<!-- 
+		created by issam in 01/01/2020 
+	 -->
+
+	<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin:auto;
+}
+
+td, th {
+  border: 1px solid #ddbdd5;
+  text-align: left;
+  padding: 1px 3px ;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+caption{
+  border: 3px solid #ddbdd5;
+}
+#freeday{
+	color: blue;
+}
+
+</style>
+</head>
+<body>
+
+	<table>
+		<caption style="font-size: 20px; color: red">Sport Programe</caption>
+	<tr>
+		<th>Day</th>
+		<th>Exercices</th>
+		<th>Duration(Minutes)</th>
+	</tr>
+	<tr class="day">
+		<th>Saturday</th>
+		<td>
+			<ul>
+				<li>Dorsoo</li>
+				<li>Triceps</li>
+				<li>Les poles</li>
+			</ul>
+		</td>
+		<td>60</td>
+	</tr>	
+
+	<tr class="day">
+		<th>Sunday</th>
+		<td>
+			<ul>
+				<li>Chest(pac)</li>
+				<li>biceps</li>
+				<li>trapaz</li>
+			</ul>
+		</td>
+		<td>60</td>
+	</tr>
+	<tr class="day">
+		<th>Monday</th>
+		<td>
+			<ul>
+				<li>Dorsoo</li>
+				<li>Triceps</li>
+				<li>?</li>
+			</ul>
+		</td>
+		<td>60</td>
+	</tr>
+	<tr class="day">
+		<th>Tuesday</th>
+		<td colspan="2">
+			<ul>
+				<li id="freeday" style="list-style: none;">Free</li>	
+			</ul>
+		</td>
+	</tr>
+	<tr class="day">
+		<th>Wednesday</th>
+		<td>
+			<ul>
+				<li>Chest(pac)</li>
+				<li>Biceps</li>
+				<li>Les poles</li>
+			</ul>
+		</td>
+		<td>60</td>
+	</tr>
+	<tr class="day">
+		<th>Thursday</th>
+		<td>
+			<ul>
+				<li>Jomba</li>
+				<li>Calf (Les Mouli)</li>
+				<li>ABS(lizabdo)</li>
+			</ul>
+		</td>
+		<td>60</td>
+	</tr>
+	<tr class="day">
+		<th>Friday</th>
+		<td colspan="2">
+			<ul>
+				<li id="freeday" style="list-style: none;">Free</li>
+			</ul>
+		</td>
+	</tr>
+
+	</table>
+
+	<p id="getM"><script type="text/javascript"> new Date().getHours().toString()</script></p>
+
+
+	<script>
+		function setColorOfToday() {
+		   var mydays = document.getElementsByClassName('day');
+		   var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+		   var d = new Date();
+		   var TodayOrTomorow = ' (Today)';
+
+		   if(d.getHours() > 19){
+		   	   if (d.getDay() == 6 ) { 
+		   	   		var dayName = days[0];
+		   	   }else{
+		   	    	var dayName = days[d.getDay() + 1];
+		   	   }
+			   var TodayOrTomorow = ' (Tomorow)';
+
+		   }else{
+		  	 	var dayName = days[d.getDay()];
+		   }
+
+		   
+		   for (var i = 0; i <= days.length - 1; i++) {
+		   		if (mydays[i].childNodes[1].innerText == dayName) {
+		   			 mydays[i].childNodes[1].innerText += TodayOrTomorow;
+		   		     mydays[i].style.backgroundColor = '#FF6587'; 
+		   		     mydays[i].style.color = '#000'; 
+		   		}
+
+		   	}	
+
+		}
+		//document.getElementById('getM').innerHTML = new Date().getHours()
+
+		setColorOfToday();
+
+
+
+	</script>
+
+</body>
+</html>
